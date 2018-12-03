@@ -1,4 +1,4 @@
-package com.bartonstanley.morphedlivedataexample
+package com.bartonstanley.baselinelivedataexample
 
 import androidx.lifecycle.MutableLiveData
 

@@ -1,10 +1,11 @@
-package com.bartonstanley.morphedlivedataexample
+package com.bartonstanley.baselinelivedataexample
 
 import androidx.lifecycle.ViewModelProviders
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -29,12 +30,13 @@ class MainActivity : AppCompatActivity() {
         // Create an instance of our view model to be used here and in the Watcher.
         stringViewModel = ViewModelProviders.of(this).get(StringViewModel::class.java)
 
-        // Subscribe to changes in string length
-        stringViewModel.subscribeToLengthChanges(this) { newLength ->
-
-            // New length published by view model.  Populate the layout with it.
-            characterCountView.text = newLength
+        // Create a LiveData Observer to respond to changes in the string
+        val stringObserver = Observer<String> { newString ->
+            characterCountView.text = newString.length.toString()
         }
+
+        // Apply the Observer to the view model
+        stringViewModel.string.observe(this, stringObserver)
 
         // Request user input events
         editTextView.addTextChangedListener(Watcher())
