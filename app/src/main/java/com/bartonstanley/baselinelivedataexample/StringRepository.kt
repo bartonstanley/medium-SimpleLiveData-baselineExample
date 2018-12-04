@@ -10,16 +10,6 @@ import androidx.lifecycle.MutableLiveData
  */
 object StringRepository {
 
-    /*
-    // Allow a LiveData Observer to observe changes to the string.
-    var observableString: MutableLiveData<String> = MutableLiveData()
-
-    // Convenience property for the string itself.
-    val string: String?
-        get() {
-            return observableString.value
-        }
-        */
     // Keep the mutable LiveData item private and provide accessors.
     private var mutableLiveDataString: MutableLiveData<String> = MutableLiveData()
 
