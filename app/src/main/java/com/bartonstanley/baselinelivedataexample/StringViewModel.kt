@@ -23,7 +23,7 @@ class StringViewModel: ViewModel() {
      *
      * @param string new value of string to be placed in the Repository.
      */
-    fun setStringValue(string: String) {
-        StringRepository.observableString.value = string
+    fun setString(string: String) {
+        StringRepository.setString(string)
     }
 }

@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         override fun afterTextChanged(s: Editable?) {
 
             // Report the new string to the view model.  The view model will in turn publish the length of this string.
-            stringViewModel.setStringValue(s.toString())
+            stringViewModel.setString(s.toString())
         }
 
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
